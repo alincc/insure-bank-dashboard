@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+.position-aside {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .main-contents {
+        min-height: 100vh;
+        background: white;
+        width: auto; 
+        flex: 1;
+    }
+
+}
+
+button {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+    color: rgb(255, 158, 102);
+    border-radius: 5px;
+}
+
+input, textarea {
+    border-radius: 5px;
+    border: solid thin #ddd;
+    width: 100%;
+}
+
+select {
+    outline: none;
+    border: solid thin #ddd;
+    box-shadow: none;
+    cursor: pointer;
+    color: #6d6d6d;
+    padding: 10px 5px 10px 5px;
+    width: 100%;
+    background: #fff;
+    border-radius: 0;
+    height: 40px;
+}
+
+
+button:active {
+    opacity: 0.8;
+}

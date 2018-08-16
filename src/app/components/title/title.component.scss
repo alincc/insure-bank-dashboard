@@ -1,0 +1,17 @@
+.title-component {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    h4 {
+        font-weight: bold;
+        color: #666666;
+    }
+
+    button {
+        margin: 0 5px 0 5px;
+        outline: none;
+        border-radius: 100%;
+    }
+    
+}

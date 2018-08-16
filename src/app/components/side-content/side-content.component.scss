@@ -1,0 +1,16 @@
+.side-content {
+    width: 25vw;
+    border: solid thin #ddd;
+    border-radius: 1px;
+    margin: 0 0 0 20px;
+    padding: 10px;
+    min-height: 100vh;
+    background: white;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    display: none;
+}
+
+.onToggle {
+    display: block;
+}
