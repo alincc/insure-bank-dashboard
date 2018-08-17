@@ -19,6 +19,7 @@ import { StateModule } from "./states/state.module";
 import { SideContentModule } from './components/side-content/side-content.module';
 import { CompanyService } from './services/companies.service';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { PolicyService } from './services/policies.service';
 
 
 
@@ -37,7 +38,8 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
     RouterModule.forRoot(routes)
   ],
   providers: [
-    CompanyService
+    CompanyService,
+    PolicyService
   ],
   bootstrap: [AppComponent]
 })

@@ -14,5 +14,9 @@ export const routes: Routes = [
     {
         path: 'companies',
         loadChildren: './pages/companies/companies.module#CompaniesModule'
+    },
+    {
+        path: 'policies',
+        loadChildren: './pages/policies/policies.module#PoliciesModule'
     }
 ]

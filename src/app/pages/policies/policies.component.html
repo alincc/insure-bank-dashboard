@@ -1,0 +1,95 @@
+
+<div class="position-aside">
+
+    <div class="main-contents">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Policy Name</th>
+                    <th>Total Amount</th>
+                    <th>Duration</th>
+                    <th>Date Created</th>
+                    <th>Date Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let policy of policies$ | async; let i = index" 
+                    (click)="onCompanySelected(policy)">
+                    <th>{{ policy.company ? policy.company.name : '' }}</th>
+                    <th>{{ policy.name }}</th>
+                    <th>{{ policy.totalAmountToPay | currency: 'Gh' }}</th>
+                    <th>{{ policy.duration }}</th>
+                    <th>{{ policy.createdAt | date }}</th>
+                    <th>{{ policy.updatedAt | date }}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <app-side-content>
+
+        <app-contents-title title="Policy" (editEvent)="onEdit()" (closeEvent)="delete()"></app-contents-title>
+
+        <div [formGroup]="formGroup" *ngIf="(selected$ | async)?._id">
+
+            <div class="contents-editable-container" [ngSwitch]="editable">
+                <div>Name</div>
+                <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.name }}</div>
+                <input type="text" [class.input-active]="editable"
+                       formControlName="name"
+                       *ngSwitchCase="true">
+            </div>
+    
+            <div class="contents-editable-container" [ngSwitch]="editable">
+                <div>Wallet</div>
+                <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.number }}</div>
+                <input type="text" [class.input-active]="editable"
+                       formControlName="number"
+                       *ngSwitchCase="true">
+            </div>
+    
+            <div class="contents-editable-container" [ngSwitch]="editable">
+                <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.network }}</div>
+                <select formControlName="network" *ngSwitchCase="true">
+                    <option [value]="network" *ngFor="let network of networks">{{ network }}</option>
+                </select>
+            </div>
+    
+            <div class="contents-editable-container">
+                <div>Api KEY</div>
+                <div class="label-value">{{ (selected$ | async)?.apiKey }}</div>
+                <button *ngIf="editable">generate key</button>
+            </div>
+    
+            <div class="contents-editable-container" [ngSwitch]="editable">
+                <div>Description</div>
+                <div class="label-value" *ngSwitchCase="false">
+                    {{ (selected$ | async)?.description }}
+                </div>
+                <textarea cols="5" rows="5" placeholder="hello" 
+                          [class.input-active]="editable"
+                          formControlName="description"
+                        *ngSwitchCase="true">
+                </textarea>
+            </div>
+    
+            <div class="contents-editable-container" [ngSwitch]="editable">
+                <div>Blocked</div>
+                <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.blocked }}</div>
+                <select formControlName="blocked" *ngSwitchCase="true">
+                    <option [value]="true">Yes</option>
+                    <option [value]="false">No</option>
+                </select>
+            </div>
+    
+            <button class="save-button" *ngIf="editable"
+                (click)="save()">save</button>
+
+        </div>
+
+
+
+    </app-side-content>
+
+</div>
