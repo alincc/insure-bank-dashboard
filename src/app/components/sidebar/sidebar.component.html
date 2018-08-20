@@ -2,17 +2,17 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
+    <!-- <br> -->
       <div class="logo">
         <a class="simple-text logo-mini">
           <div class="logo-image-small">
             <img [src]="sideBar.logo">
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="" class="simple-text logo-normal">
           {{ sideBar.title }}
         </a>
       </div>
-
 
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -20,10 +20,26 @@
             <a [routerLink]="item.item" style="font-weight: bold"
              (click)="onLinkCliked(item.item)">
               <i [class]="item.icon"></i>
-              <p>{{ item['item'] }}</p>
+              <p style="font-size: 17px;">{{ item['item'] }}</p>
             </a>
           </li>
         </ul>
+
+        <br>
+        <h6 class="reports-header">Reports</h6>
+        <hr>
+        <ul class="nav">
+          <li [routerLinkActive]="['active']" *ngFor="let item of sideBar.reports">
+            <a [routerLink]="item.item" style="font-weight: bold"
+              (click)="onLinkCliked(item.item)">
+              <i [class]="item.icon"></i>
+              <p style="font-size: 17px;">{{ item['item'] }}</p>
+            </a>
+          </li>
+        </ul>
+
+
       </div>
+
       
 </div>

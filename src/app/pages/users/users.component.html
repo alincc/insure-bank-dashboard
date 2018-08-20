@@ -1,0 +1,135 @@
+
+<div class="position-aside">
+
+        <div class="main-contents">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>ID Number</th>
+                        <th>ID Type</th>
+                        <th>Blocked</th>
+                        <th>Date Created</th>
+                        <th>Date Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users$ | async; let i = index" 
+                        (click)="onUserSelected(user)">
+                        <th>{{ user.name }}</th>
+                        <th>{{ user.phone }}</th>
+                        <th>{{ user.idNumber }}</th>
+                        <th>{{ user.idType }}</th>
+                        <th>{{ user.blocked }}</th>
+                        <th>{{ user.createdAt | date }}</th>
+                        <th>{{ user.updatedAt | date }}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <app-side-content>
+    
+            <app-contents-title title="User" (editEvent)="onEdit()" (closeEvent)="delete()"></app-contents-title>
+    
+            <div [formGroup]="formGroup" *ngIf="(selected$ | async) && (selected$ | async)._id">
+    
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>User Name</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.name  }}</div>
+                    <input type="text" [class.input-active]="editable"
+                           formControlName="name"
+                           *ngSwitchCase="true">
+                </div>
+        
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>Phone Number</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.phone }}</div>
+                    <input type="text" [class.input-active]="editable"
+                           formControlName="phone"
+                           *ngSwitchCase="true">
+                </div>
+    
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>ID Number</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.idNumber }}</div>
+                    <input type="text" [class.input-active]="editable"
+                           formControlName="idNumber"
+                           *ngSwitchCase="true">
+                </div>
+    
+    
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>ID Type</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.idType }}</div>
+                    <input type="text" [class.input-active]="editable"
+                           formControlName="idType"
+                           *ngSwitchCase="true">
+                </div>
+
+
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>Date Of Birth</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.dateOfBirth }}</div>
+                    <input type="text" [class.input-active]="editable"
+                            formControlName="dateOfBirth"
+                            *ngSwitchCase="true">
+                </div>
+
+
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>Address</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.address }}</div>
+                    <input type="text" [class.input-active]="editable"
+                            formControlName="address"
+                            *ngSwitchCase="true">
+                </div>
+
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>Security Pin</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.securityPin }}</div>
+                    <input type="text" [class.input-active]="editable"
+                            formControlName="securityPin"
+                            *ngSwitchCase="true">
+                </div>
+    
+    
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>Network</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.network }}</div>
+                    <select formControlName="network" *ngSwitchCase="true">
+                        <option [value]="network" *ngFor="let network of networks">{{ network }}</option>
+                    </select>
+                </div>
+
+
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>Blocked</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.blocked ? 'Yes' : 'No' }}</div>
+                    <select formControlName="network" *ngSwitchCase="true">
+                        <option [value]="true">Yes</option>
+                        <option [value]="false">No</option>
+                    </select>
+                </div>
+    
+    
+                <div class="contents-editable-container" [ngSwitch]="editable">
+                    <div>Email</div>
+                    <div class="label-value" *ngSwitchCase="false">{{ (selected$ | async)?.email }}</div>
+                    <input type="text" [class.input-active]="editable"
+                           formControlName="email"
+                           *ngSwitchCase="true">
+                </div>
+        
+        
+        
+                <button class="save-button" *ngIf="editable" (click)="save()">save</button>
+    
+            </div>
+    
+    
+    
+        </app-side-content>
+    
+    </div>

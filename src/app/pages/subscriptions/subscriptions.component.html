@@ -1,0 +1,104 @@
+
+<div class="position-aside">
+
+        <div class="main-contents">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Policy Name</th>
+                        <th>Company Name</th>
+                        <th>Approved</th>
+                        <th>Status</th>
+                        <th>End Date</th>
+                        <th>Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let subscription of subscriptions$ | async; let i = index" 
+                        (click)="onSubscriptionSelected(subscription)">
+                        <th>{{ subscription.getUserName() }}</th>
+                        <th>{{ subscription.getPolicyName() }}</th>
+                        <th>{{ subscription.getCompanyName() }}</th>
+                        <th>{{ subscription.approved ? 'YES' : 'NO' }}</th>
+                        <th>{{ subscription.status }}</th>
+                        <th>{{ user.createdAt | date }}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <app-side-content>
+    
+            <app-contents-title title="Subscription"></app-contents-title>
+    
+            <div *ngIf="(selected$ | async) && (selected$ | async)._id">
+    
+                <div class="contents-editable-container">
+                    <div>User Name</div>
+                    <div class="label-value">{{ (selected$ | async)?.getUserName() }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Policy Name</div>
+                    <div class="label-value">{{ (selected$ | async)?.getPolicyName() }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Company Name</div>
+                    <div class="label-value">{{ (selected$ | async)?.getCompanyName() }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Approved</div>
+                    <div class="label-value">{{ (selected$ | async)?.approved ? 'YES' : 'NO' }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Status</div>
+                    <div class="label-value">{{ (selected$ | async)?.status }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Error Message</div>
+                    <div class="label-value">{{ (selected$ | async)?.endDate }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Start Date</div>
+                    <div class="label-value">{{ (selected$ | async)?.startDate }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Debit Day</div>
+                    <div class="label-value">{{ (selected$ | async)?.debitDay }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>End Date</div>
+                    <div class="label-value">{{ (selected$ | async)?.endDate }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Subscription Canceled</div>
+                    <div class="label-value">{{ (selected$ | async)?.canceled ? 'YES' : 'NO' }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Mandate Id</div>
+                    <div class="label-value">{{ (selected$ | async)?.mandateId }}</div>
+                </div>
+
+                <div class="contents-editable-container">
+                    <div>Subscription Completed</div>
+                    <div class="label-value">{{ (selected$ | async)?.completed ? 'YES' : 'NO' }}</div>
+                </div>
+    
+    
+            </div>
+    
+    
+    
+        </app-side-content>
+    
+    </div>

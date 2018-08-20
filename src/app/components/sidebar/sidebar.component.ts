@@ -13,7 +13,8 @@ export interface ISidebarItems {
 export interface ISidebar {
     title: string;
     logo: string;
-    items: ISidebarItems[]
+    items: ISidebarItems[];
+    reports: ISidebarItems[];
 }
 
 

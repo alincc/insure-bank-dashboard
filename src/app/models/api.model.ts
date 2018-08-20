@@ -12,5 +12,7 @@ export interface IApi {
 
 export const API = {
     companies: `${BASE_URL}/${API_CONFIG.version}/companies`,
-    policies: `${BASE_URL}/${API_CONFIG.version}/policies`
+    policies: `${BASE_URL}/${API_CONFIG.version}/policies`,
+    users: `${BASE_URL}/${API_CONFIG.version}/users`,
+    subscriptions:  `${BASE_URL}/${API_CONFIG.version}/subscriptions`
 }

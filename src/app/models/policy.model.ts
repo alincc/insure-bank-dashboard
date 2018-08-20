@@ -37,6 +37,7 @@ export class PolicyModel implements IPolicy {
         frequencyType: frequencyType;
         frequency: string;
         totalAmountToPay: string;
+        amountToDebit: string;
         duration: string;
         createdAt: string;
         updatedAt: string;
@@ -52,6 +53,7 @@ export class PolicyModel implements IPolicy {
             this.duration = policy.duration;
             this.createdAt = policy.createdAt;
             this.updatedAt = policy.updatedAt;
+            this.amountToDebit = policy.amountToDebit;
         }
 
         

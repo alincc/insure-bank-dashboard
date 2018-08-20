@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 
 
+
 export const routes: Routes = [
     {
         path: '',
@@ -18,5 +19,17 @@ export const routes: Routes = [
     {
         path: 'policies',
         loadChildren: './pages/policies/policies.module#PoliciesModule'
+    },
+    {
+        path: 'users',
+        loadChildren: './pages/users/users.module#UsersModule'
+    },
+    {
+        path: 'subscriptions',
+        loadChildren: './pages/subscriptions/subscriptions.module#SubscriptionsModule'
+    },
+    {
+        path: 'deductions',
+        loadChildren: './reports/deductions/deductions.module#DeductionsModule'
     }
 ]

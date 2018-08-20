@@ -20,6 +20,8 @@ import { SideContentModule } from './components/side-content/side-content.module
 import { CompanyService } from './services/companies.service';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { PolicyService } from './services/policies.service';
+import { UserService } from './services/users.service';
+import { SubscriptionService } from './services/subscriptions.state';
 
 
 
@@ -39,7 +41,9 @@ import { PolicyService } from './services/policies.service';
   ],
   providers: [
     CompanyService,
-    PolicyService
+    PolicyService,
+    UserService,
+    SubscriptionService
   ],
   bootstrap: [AppComponent]
 })

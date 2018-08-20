@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Francois One', sans-serif;
+font-family: 'Cantarell', sans-serif
 }
 
 a {
@@ -12,15 +13,25 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    .main-contents {
-        min-height: 100vh;
-        background: white;
-        width: auto; 
-        flex: 1;
-    }
-
 }
+
+
+.main-contents {
+    min-height: 100vh;
+    background: white;
+    width: auto; 
+    flex: 1;
+}
+
+
+.reports {
+    table {
+        th {
+            font-size: 10px;
+        }
+    }
+}
+
 
 button {
     appearance: none;
@@ -102,13 +113,14 @@ table {
     font-size: 16px;
 
     div {
-        margin: 0 0 5px 0;
-        font-size: 17px;
+        margin: 15px 0 10px 0;
+        font-size: 15px;
+        font-weight: bold;
         color: rgb(196, 68, 0);
     }
 
     .label-value {
-        font-weight: bold;
+        // font-weight: bold;
         color: #6d6d6d;
     }
 
@@ -134,5 +146,6 @@ table {
     input:focus {
         border: solid thin rgb(255, 203, 173);
     }
+
 
 }

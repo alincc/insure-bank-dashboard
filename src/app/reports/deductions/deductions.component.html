@@ -1,0 +1,27 @@
+<div class="main-contents reports">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Subscription Id</th>
+                <th>Mandate Id</th>
+                <th>Transaction Id</th>
+                <th>Debit Order TransactionId</th>
+                <th>Amount</th>
+                <th>Response Message</th>
+                <th>Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users$ | async; let i = index" 
+                (click)="onUserSelected(user)">
+                <th>{{ user.name }}</th>
+                <th>{{ user.phone }}</th>
+                <th>{{ user.idNumber }}</th>
+                <th>{{ user.idType }}</th>
+                <th>{{ user.blocked }}</th>
+                <th>{{ user.createdAt | date }}</th>
+                <th>{{ user.updatedAt | date }}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

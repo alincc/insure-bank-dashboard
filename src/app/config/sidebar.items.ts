@@ -11,6 +11,10 @@ export const sideBarItems: ISidebar = {
             icon: 'nc-icon nc-bank'
         },
         {
+            item: 'users',
+            icon: 'nc-icon nc-single-02'
+        },
+        {
             item: 'companies',
             icon: 'nc-icon nc-tile-56'
         },
@@ -19,8 +23,18 @@ export const sideBarItems: ISidebar = {
             icon: 'nc-icon nc-tile-56'
         },
         {
-            item: 'users',
-            icon: 'nc-icon nc-single-02'
+            item: 'subscriptions',
+            icon: 'nc-icon nc-tile-56'
+        }
+    ],
+    reports: [
+        {
+            item: 'deductions',
+            icon: 'nc-icon nc-tile-56'
+        },
+        {
+            item: 'payments',
+            icon: 'nc-icon nc-tile-56'
         }
     ]
 }

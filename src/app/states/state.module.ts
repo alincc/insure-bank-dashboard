@@ -5,6 +5,8 @@ import { NgxsModule } from "@ngxs/store";
 import { AppState } from "./app/app.state";
 import { CompanyState } from './companies/company.state';
 import { PolicyState } from './policies/policies.state';
+import { UserState } from './users/users.state';
+
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import { PolicyState } from './policies/policies.state';
         NgxsModule.forRoot([
             AppState,
             CompanyState,
-            PolicyState
+            PolicyState,
+            UserState
         ])
     ],
     exports: [],
